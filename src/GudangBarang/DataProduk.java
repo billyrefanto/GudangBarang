@@ -1,11 +1,10 @@
 package GudangBarang;
 
 public abstract class DataProduk {
-    protected int idProduk,stock,barcode;
+    protected int idProduk,stock,barcode,harga;
     protected String namaDistributor, namaProduk,status,berat,kategoriProduk,tanggalDiterima;
-    protected Double harga;
 
-    public DataProduk(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, Double harga) {
+    public DataProduk(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga) {
         this.idProduk = idProduk;
         this.stock = stock;
         this.barcode = barcode;
@@ -16,6 +15,10 @@ public abstract class DataProduk {
         this.kategoriProduk = kategoriProduk;
         this.tanggalDiterima = tanggalDiterima;
         this.harga = harga;
+    }
+
+    public int getIdProduk() {
+        return idProduk;
     }
 
     public String getNamaProduk() {

@@ -3,7 +3,7 @@ package GudangBarang;
 public class Fashion extends DataProduk {
     private final String jenisFashion,ukuran,bahan,warna,model;
 
-    public Fashion(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, Double harga, String jenisFashion, String ukuran, String bahan, String warna, String model) {
+    public Fashion(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga, String jenisFashion, String ukuran, String bahan, String warna, String model) {
         super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga);
         this.jenisFashion = jenisFashion;
         this.ukuran = ukuran;
@@ -19,9 +19,9 @@ public class Fashion extends DataProduk {
                         "\nId Produk          :" + this.idProduk +
                         "\nNama Distributor   :" + this.namaDistributor +
                         "\nNama Produk        :" + this.namaProduk +
-                        "\nNama Stock         :" + this.stock +
+                        "\nStock              :" + this.stock +
                         "\nStatus             :" + this.status +
-                        "\nHarga              :" + this.harga +
+                        "\nHarga              :" + "Rp." +this.harga + ",-"+
                         "\nBarcode            :" + this.barcode +
                         "\nBerat              :" + this.berat +
                         "\nTanggal Diterima   :" + this.tanggalDiterima +

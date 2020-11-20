@@ -4,7 +4,7 @@ public class Electronic extends DataProduk{
     private final int serialNumber;
     private final String garansi;
 
-    public Electronic(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, Double harga, int serialNumber, String garansi) {
+    public Electronic(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga, int serialNumber, String garansi) {
         super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga);
         this.serialNumber = serialNumber;
         this.garansi = garansi;
@@ -17,9 +17,9 @@ public class Electronic extends DataProduk{
                         "\nId Produk          :" + this.idProduk +
                         "\nNama Distributor   :" + this.namaDistributor +
                         "\nNama Produk        :" + this.namaProduk +
-                        "\nNama Stock         :" + this.stock +
+                        "\nStock              :" + this.stock +
                         "\nStatus             :" + this.status +
-                        "\nHarga              :" + this.harga +
+                        "\nHarga              :" + "Rp." +this.harga + ",-"+
                         "\nBarcode            :" + this.barcode +
                         "\nBerat              :" + this.berat +
                         "\nTanggal Diterima   :" + this.tanggalDiterima +
