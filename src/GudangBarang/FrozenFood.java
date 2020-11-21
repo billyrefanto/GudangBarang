@@ -1,17 +1,19 @@
 package GudangBarang;
 
-public class FrozenFood extends DataProduk {
-    private final String tanggalKadaluarsa,penyimpananKhusus,noReg;
+public class FrozenFood extends DataProduk { // menambahkan extends DataProduk pada class FrozenFood
+    private final String tanggalKadaluarsa,penyimpananKhusus,noReg; //Deklarasi variabel
 
+    //Constructor FrozenFood
     public FrozenFood(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga, String tanggalKadaluarsa, String penyimpananKhusus, String noReg) {
-        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga);
+        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga); //pewarisan dari class DataProduk
         this.tanggalKadaluarsa = tanggalKadaluarsa;
         this.penyimpananKhusus = penyimpananKhusus;
         this.noReg = noReg;
     }
 
+    //Method display data
     @Override
-    protected void Display() {
+    public void Display() {
         System.out.println(
                 "\n[Data Produk Frozen Food]" +
                         "\nId Produk          :" + this.idProduk +

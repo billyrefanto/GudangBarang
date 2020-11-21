@@ -1,10 +1,11 @@
 package GudangBarang;
 
-public class Fashion extends DataProduk {
-    private final String jenisFashion,ukuran,bahan,warna,model;
+public class Fashion extends DataProduk { // menambahkan extends DataProduk pada class FrozenFood
+    private final String jenisFashion,ukuran,bahan,warna,model; //deklarasi variabel
 
+    //Constructor Fashion
     public Fashion(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga, String jenisFashion, String ukuran, String bahan, String warna, String model) {
-        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga);
+        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga); //pewarisan dari class DataProduk
         this.jenisFashion = jenisFashion;
         this.ukuran = ukuran;
         this.bahan = bahan;
@@ -12,6 +13,7 @@ public class Fashion extends DataProduk {
         this.model = model;
     }
 
+    //Method display data
     @Override
     protected void Display() {
         System.out.println(

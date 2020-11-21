@@ -1,14 +1,16 @@
 package GudangBarang;
 
-public class Snack extends DataProduk {
-    private final String varian,tanggalKadaluarsa;
+public class Snack extends DataProduk { // menambahkan extends DataProduk pada class FrozenFood
+    private final String varian,tanggalKadaluarsa; //deklarasi variabel
 
+    //Constructor Snack
     public Snack(int idProduk, int stock, int barcode, String namaDistributor, String namaProduk, String status, String berat, String kategoriProduk, String tanggalDiterima, int harga, String varian, String tanggalKadaluarsa) {
-        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga);
+        super(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga); //pewarisan dari class DataProduk
         this.varian = varian;
         this.tanggalKadaluarsa = tanggalKadaluarsa;
     }
 
+    //Method display data
     @Override
     protected void Display() {
         System.out.println(

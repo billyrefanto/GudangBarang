@@ -3,19 +3,21 @@ package GudangBarang;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in); //Scanner
-    static Gudang gudang = new Gudang(); //inisialisasi class Gudang
+    static Scanner scanner = new Scanner(System.in);
+    static Gudang gudang = new Gudang(); // instansiasi class Gudang
 
     public static void main(String[] args) {
+        //deklasrasi variabel dan inisialisasi variabel
+        int idProduk = 4, stock, barcode, serialNumber, menu, kategori,harga;
+        String namaDistributor, namaProduk, status, berat, tanggalDiterima, tanggalKadaluarsa, penyimpananKhusus, noReg, garansi, jenisFashion, ukuran, bahan, warna, model, kategoriProduk, tanggalSekarang,varian,noRegistrasi,jenisRegistrasi;
 
-        int idProduk = 3, stock, barcode, serialNumber, menu, kategori,harga;
-        String namaDistributor, namaProduk, status, berat, tanggalDiterima, tanggalKadaluarsa, penyimpananKhusus, noReg, garansi, jenisFashion, ukuran, bahan, warna, model, kategoriProduk, tanggalSekarang,varian;
-        tanggalSekarang = gudang.getTanggal();
-        productDummy();
+        tanggalSekarang = gudang.getTanggal(); //memanggil getTanggal kemudian di tampung ke variabel baru yaitu tanggalSekarang
+        productDummy(); //menjalankan productDummy untuk menampilkan data dummy
+        //Perulangan so-while
         do {
             System.out.println(
                     "==============[Pilih Menu]=================\n" +
-                            "Gudang Barang \n" +
+                            "Iventori Gudang Barang \n" +
                             "1. Tambah Produk \n" +
                             "2. Menampilkan Semua produk \n" +
                             "3. Menampikan Berdasarkan kategori\n" +
@@ -27,10 +29,13 @@ public class Main {
             );
             System.out.print("Menu Ke - ");
             menu = scanner.nextInt();
+            //Perkondisian untuk menu dengan inputan angka pada menu
             switch (menu) {
+                //Case Menambahkan data
                 case 1:
-                    idProduk++;
-                    tanggalDiterima = tanggalSekarang;
+                    idProduk++; //idProduk auto increment
+                    tanggalDiterima = tanggalSekarang; //Tanggal sekarang
+                    status = "Disimpan";
                     System.out.println("Masukan data berikut.");
                     System.out.println("Stock            : ");
                     stock = scanner.nextInt();
@@ -40,8 +45,6 @@ public class Main {
                     namaDistributor = scanner.next();
                     System.out.println("Nama Produk      : ");
                     namaProduk = scanner.next();
-                    System.out.println("Status           : ");
-                    status = scanner.next();
                     System.out.println("Berat (gram)     : ");
                     berat = scanner.next();
                     System.out.print("Harga            :\n" +
@@ -53,9 +56,10 @@ public class Main {
                                     "2. Electronic \n" +
                                     "3. Fashion\n" +
                                     "4. Snack\n" +
-                                    "Masukan kategori : "
+                                    "Angka ke - "
                     );
                     kategori = scanner.nextInt();
+                    //Perkondisian kategori produk Frozen food, electronic, fashion, snack dengan inputan angka 1-4
                     if (kategori == 1) {
                         kategoriProduk = "Frozen Food";
                         System.out.println("Kategori Produk " + kategoriProduk);
@@ -64,12 +68,16 @@ public class Main {
                         System.out.print("Penyimpanan Khusus [Ya/Tidak]\n" +
                                 "Masukan pilihan : ");
                         penyimpananKhusus = scanner.next();
-                        System.out.print("No Registrasi\n" +
+                        System.out.print("Jenis Registrasi Produk\n" +
                                 "1. BPOM\n" +
-                                "2. P-IRT\n" +
-                                "3. Halal MUI\n" +
-                                "Nomer Registrasi ");
-                        noReg = scanner.next();
+                                "2. PIRT\n" +
+                                "3. MUI\n" +
+                                "Masukan Jenis Registrasi : ");
+                        noRegistrasi = scanner.next();
+                        System.out.print(noRegistrasi+" - ");
+                        jenisRegistrasi = scanner.next();
+                        noReg = noRegistrasi + " - " + jenisRegistrasi;
+                        //Menambahkan data kategori produk frozen food
                         gudang.addProduct(new FrozenFood(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga, tanggalKadaluarsa, penyimpananKhusus, noReg));
                         System.out.println("Data Produk " + kategoriProduk + " Berhasil Ditambah!");
                     } else if (kategori == 2) {
@@ -78,6 +86,7 @@ public class Main {
                         serialNumber = scanner.nextInt();
                         System.out.println("Tanggal Garansi :");
                         garansi = scanner.next();
+                        //Menambahkan data produk berkategori electronic
                         gudang.addProduct(new Electronic(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga,serialNumber,garansi));
                         System.out.println("Data Produk " + kategoriProduk + " Berhasil Ditambah!");
                     } else if (kategori == 3) {
@@ -100,6 +109,7 @@ public class Main {
                         warna = scanner.next();
                         System.out.println("Model   :");
                         model = scanner.next();
+                        //Menambahkan data produk kategori fashion
                         gudang.addProduct(new Fashion(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga,jenisFashion,ukuran,bahan,warna,model));
                         System.out.println("Data Produk " + kategoriProduk + " Berhasil Ditambah!");
                     } else if (kategori == 4) {
@@ -108,6 +118,7 @@ public class Main {
                         varian = scanner.next();
                         System.out.println("Tanggal Kadaluarsa :");
                         tanggalKadaluarsa = scanner.next();
+                        //Menambahkan data produk kategori Snack
                         gudang.addProduct(new Snack(idProduk, stock, barcode, namaDistributor, namaProduk, status, berat, kategoriProduk, tanggalDiterima, harga,varian,tanggalKadaluarsa));
                         System.out.println("Data Produk " + kategoriProduk + " Berhasil Ditambah!");
                     } else {
@@ -115,6 +126,7 @@ public class Main {
                     }
                     break;
                 case 2:
+                    //Menampikan semua data produk
                     gudang.showAllProduct();
                     break;
                 case 3:
@@ -151,7 +163,6 @@ public class Main {
                     System.out.println("Masukan Id Produk : ");
                     idProduk = scanner.nextInt();
                     gudang.removeByIdProduct(idProduk);
-                    System.out.println("ID Produk " + idProduk + " Berhasil Dihapus!");
                     break;
                 default:
                     System.out.println("Keluar!");
@@ -160,10 +171,11 @@ public class Main {
         } while (true);
 
     }
-
-
+    //Membuat data dummy untuk testing menambahkan data pada kategori Electronic, FrozenFood, Fashion, dan Snack
     public static void productDummy() {
-        gudang.addProduct(new Electronic(1,200,123124,"Terang","Mouse", "Baru","250","Electronic","11/11/2020", 17500,87766556,"Distributor"));
-        gudang.addProduct(new FrozenFood(2,100,435345,"Alfaria","Indomie","Ada","200","Frozen Food","11/11/2020",2500,"10/11/2022","Ya","BPOM"));
+        gudang.addProduct(new Electronic(1,200,123124,"Terang","Mouse", "Disimpan","250","Electronic","11/11/2020", 175000,87766556,"Distributor"));
+        gudang.addProduct(new FrozenFood(2,100,435345,"SoGood","Nugget","Disimpan","250","Frozen Food","11/11/2020",45000,"10/11/2022","Ya","BPOM - 54656343"));
+        gudang.addProduct(new Fashion(3,250,32423523,"Bandung Cloth","Hodie","Disimpan","150","Fashion","11/11/2020",250000,"Baju","XL","Kain","Kuning","Hodie"));
+        gudang.addProduct(new Snack(4,43,3423423,"MerryLan","Gandaria","Disimpan","130","Snack","11/11/2020",15000,"Balado","20/11/2022"));
     }
 }
